@@ -72,6 +72,18 @@ function eliminarTarea(index) {
 }
 
 // Crear una nueva Tarea
+
+function nuevaTarea() {
+    const nuevaTareaTexto = ingresar.value.trim();
+    if (nuevaTareaTexto === '') return;
+
+    const tareas = obtenerTareasLocalStorage() || []; // ← por si es null al inicio
+    tareas.push({ texto: nuevaTareaTexto, completada: false });
+    guardarTareasLocalStorage(tareas);
+    ingresar.value = '';
+    mostrarTareas();
+}
+
 // Escuchar el boton Agregar y en el evento click llamar a nuevaTarea
 // Escuchar el inputTarea y en el evento keypress con la tecla Enter
 // llamar a nuevaTarea
