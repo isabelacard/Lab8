@@ -37,7 +37,7 @@ function mostrarTareas() {
         const contenedorBotones = document.createElement('div');
 
         const btnCompletar = document.createElement('button');
-        btnCompletar.textContent = '✓';
+        btnCompletar.textContent = '✔️';
         btnCompletar.classList.add('btn_ok');
         btnCompletar.onclick = () => {
             tareas[index].completada = !tareas[index].completada;
@@ -46,7 +46,7 @@ function mostrarTareas() {
         };
 
         const btnEliminar = document.createElement('button');
-        btnEliminar.textContent = '🗑️';
+        btnEliminar.textContent = '❌';
         btnEliminar.classList.add('btn_eliminar');
         btnEliminar.onclick = () => {
             tareas.splice(index, 1);
@@ -77,7 +77,7 @@ function nuevaTarea() {
     const nuevaTareaTexto = ingresar.value.trim();
     if (nuevaTareaTexto === '') return;
 
-    const tareas = obtenerTareasLocalStorage() || []; // ← por si es null al inicio
+    const tareas = obtenerTareasLocalStorage() || [];
     tareas.push({ texto: nuevaTareaTexto, completada: false });
     guardarTareasLocalStorage(tareas);
     ingresar.value = '';
