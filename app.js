@@ -22,11 +22,46 @@ function mostrarTareas() {
 }
 
 // Marcar la Tarea como completada
-function completarTarea(index) {
-    const btnCompletar = document.createElement('button');
-    btnCompletar.textContent = '✓';
-    btnCompletar.onclick = () => completarTarea(index);
+function mostrarTareas() {
+    lista.innerHTML = '';
+    const tareas = obtenerTareasLocalStorage();
+
+    if (!tareas) return;
+
+    tareas.forEach((item, index) => {
+        const li = document.createElement('li');
+        li.classList.add('tarea');
+        if (item.completada) li.classList.add('completada');
+        li.textContent = item.texto;
+
+        const contenedorBotones = document.createElement('div');
+
+        const btnCompletar = document.createElement('button');
+        btnCompletar.textContent = '✓';
+        btnCompletar.classList.add('btn_ok');
+        btnCompletar.onclick = () => {
+            tareas[index].completada = !tareas[index].completada;
+            guardarTareasLocalStorage(tareas);
+            mostrarTareas();
+        };
+
+        const btnEliminar = document.createElement('button');
+        btnEliminar.textContent = '🗑️';
+        btnEliminar.classList.add('btn_eliminar');
+        btnEliminar.onclick = () => {
+            tareas.splice(index, 1);
+            guardarTareasLocalStorage(tareas);
+            mostrarTareas();
+        };
+
+        contenedorBotones.appendChild(btnCompletar);
+        contenedorBotones.appendChild(btnEliminar);
+
+        li.appendChild(contenedorBotones);
+        lista.appendChild(li);
+    });
 }
+
 
 // Eliminar la Tarea correspondiente
 function eliminarTarea(index) {
@@ -37,15 +72,9 @@ function eliminarTarea(index) {
 }
 
 // Crear una nueva Tarea
-function nuevaTarea() {
-
-}
-
 // Escuchar el boton Agregar y en el evento click llamar a nuevaTarea
-
-// Escuchar el inputTarea y en el evento keypress con la tecla Enter 
+// Escuchar el inputTarea y en el evento keypress con la tecla Enter
 // llamar a nuevaTarea
 
 // Cargar tareas al iniciar con mostrarTareas
-
 
