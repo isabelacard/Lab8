@@ -1,32 +1,38 @@
 
 // Seleccionar los elemento x id del DOM: ingresar-tarea, boton-agregar y lista-tareas
 
-document.getElementById('ingresar-tarea');
+const ingresar = document.getElementById('ingresar-tarea');
 const agregar = document.getElementById('boton-agregar');
 const lista = document.getElementById('lista-tareas');
 
 // Obtener tareas del localStorage
 function obtenerTareasLocalStorage() {
+    return JSON.parse(localStorage.getItem('tareas'));
 }
 
 // Guardar tareas en localStorage
 function guardarTareasLocalStorage(tareas) {
+    localStorage.setItem('tareas', JSON.stringify(tareas));
 }
 
 // Renderizar la lista de tareas en el DOM
 function mostrarTareas() {
+
 }
 
 // Marcar la Tarea como completada
 function completarTarea(index) {
+
 }
 
 // Eliminar la Tarea correspondiente
 function eliminarTarea(index) {
+
 }
 
 // Crear una nueva Tarea
 function nuevaTarea() {
+
 }
   
 // Escuchar el boton Agregar y en el evento click llamar a nuevaTarea
