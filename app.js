@@ -17,24 +17,30 @@ function guardarTareasLocalStorage(tareas) {
 
 // Renderizar la lista de tareas en el DOM
 function mostrarTareas() {
-
+    lista.innerHTML = '';
+    const tareas = obtenerTareasLocalStorage();
 }
 
 // Marcar la Tarea como completada
 function completarTarea(index) {
-
+    const btnCompletar = document.createElement('button');
+    btnCompletar.textContent = '✓';
+    btnCompletar.onclick = () => completarTarea(index);
 }
 
 // Eliminar la Tarea correspondiente
 function eliminarTarea(index) {
-
+    const tareas = obtenerTareasLocalStorage();
+    tareas.splice(index, 1);
+    guardarTareasLocalStorage(tareas);
+    mostrarTareas();
 }
 
 // Crear una nueva Tarea
 function nuevaTarea() {
 
 }
-  
+
 // Escuchar el boton Agregar y en el evento click llamar a nuevaTarea
 
 // Escuchar el inputTarea y en el evento keypress con la tecla Enter 
