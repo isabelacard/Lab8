@@ -85,7 +85,18 @@ function nuevaTarea() {
 }
 
 // Escuchar el boton Agregar y en el evento click llamar a nuevaTarea
+
+agregar.addEventListener('click', nuevaTarea);
+
 // Escuchar el inputTarea y en el evento keypress con la tecla Enter
+
+ingresar.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+        nuevaTarea();
+    }
+});
+
+
 // llamar a nuevaTarea
 
 // Cargar tareas al iniciar con mostrarTareas
