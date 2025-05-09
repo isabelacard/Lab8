@@ -99,5 +99,8 @@ ingresar.addEventListener('keydown', (e) => {
 
 // llamar a nuevaTarea
 
+nuevaTarea();
+
 // Cargar tareas al iniciar con mostrarTareas
 
+mostrarTareas();
